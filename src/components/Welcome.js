@@ -1,14 +1,17 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 export default function Welcome(props){
     const[count,setCount]=useState(0)
     const[semaforo,setSemaforo]=useState(false)
     const {name}=props;
 
+    useEffect(()=>{
+        console.log("se cambia de color")
+    },[semaforo])
+
     const contar=()=>{
         setCount(count+1)
         setSemaforo(!semaforo)
-        console.log(semaforo)
     }
     return(
         <div>
